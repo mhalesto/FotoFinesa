@@ -1,9 +1,10 @@
-export interface IThemeColors {
-  mediumPurple: string;
-  vampireBlack: string;
-  mediumSlateBlue: string;
-  brightGray: string;
-  americanPurple: string;
-  darkPastelPurple: string;
-  iris: string;
+export interface ICustomThemeColors {
+  customMediumPurple: string;
+  customVampireBlack: string;
+  customMediumSlateBlue: string;
+  customBrightGray: string;
+  customAmericanPurple: string;
+  customDarkPastelPurple: string;
+  customIris: string;
+  customBodyDark: string;
 }

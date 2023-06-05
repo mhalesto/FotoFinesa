@@ -1,17 +1,21 @@
 import React from 'react';
 import {StatusBar, useColorScheme} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {ICustomStatusBarProps} from './types';
+import {useAppTheme} from '../../../../App';
 
 const CustomStatusBar = ({backgroundColor}: ICustomStatusBarProps) => {
   const isDarkMode = useColorScheme() === 'dark';
+
+  const {
+    colors: {customVampireBlack, customMediumSlateBlue},
+  } = useAppTheme();
 
   const backgroundStyle = {
     background: backgroundColor
       ? backgroundColor
       : isDarkMode
-      ? Colors.darker
-      : Colors.lighter,
+      ? customVampireBlack
+      : customMediumSlateBlue,
   };
 
   return (
