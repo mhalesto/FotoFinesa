@@ -1,14 +1,13 @@
 import React from 'react';
-import {View, ScrollView, Text, StyleSheet} from 'react-native';
+import {View, ScrollView, StyleSheet} from 'react-native';
 import {ICustomAppContainerProps} from './types';
 
-const CustomAppContainer = ({isScrollable}: ICustomAppContainerProps) => {
+const CustomAppContainer = ({
+  isScrollable,
+  children,
+}: ICustomAppContainerProps) => {
   const ViewType = isScrollable ? ScrollView : View;
-  return (
-    <ViewType style={styles.container}>
-      <Text>Main Container</Text>
-    </ViewType>
-  );
+  return <ViewType style={styles.container}>{children && children}</ViewType>;
 };
 
 export default CustomAppContainer;
