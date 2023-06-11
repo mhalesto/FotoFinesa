@@ -1,24 +1,45 @@
+/* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {useAppTheme} from '../../../App';
+import CustomHeader from '../../components/common/header';
+import CustomAvatar from '../../components/common/customAvatar';
+import {AvatarTypeList} from '../../components/common/header/types';
+import AvatarImage from '../../assets/images/avatar/avatarWoman.png';
 
 const HomeScreen = () => {
   const {
-    colors: {customVampireBlack},
+    colors: {customVampireBlack, customMediumPurple, customBrightGray},
   } = useAppTheme();
 
   return (
     <View>
-      <View style={{backgroundColor: customVampireBlack}}>
-        <Text>HomeScreen component</Text>
-        <Text />
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
-          saepe magnam modi autem laboriosam nesciunt molestias a asperiores
-          officia aliquam facere accusamus natus, sed voluptas rerum eum?
-          Dolorem, nobis commodi.
-        </Text>
-      </View>
+      <CustomHeader
+        customBckgroundColor={customVampireBlack}
+        leftAvatarComponent={
+          <>
+            <CustomAvatar
+              color={customMediumPurple}
+              avatarType={AvatarTypeList.Image}
+              size={42}
+              source={AvatarImage}
+            />
+          </>
+        }
+        rightAvatarComponent={
+          <>
+            <CustomAvatar
+              color={customBrightGray}
+              avatarType={AvatarTypeList.Icon}
+              icon={'cog'}
+              size={40}
+              avatarPosition={'center'}
+              backgroundColor="transparent"
+            />
+          </>
+        }
+        title={''}
+      />
     </View>
   );
 };
