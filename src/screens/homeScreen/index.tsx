@@ -1,27 +1,27 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {View} from 'react-native';
 import {useAppTheme} from '../../../App';
 import CustomHeader from '../../components/common/header';
 import CustomAvatar from '../../components/common/customAvatar';
 import {AvatarTypeList} from '../../components/common/header/types';
 import AvatarImage from '../../assets/images/avatar/avatarWoman.png';
+import CustomAppContainer from '../../components/common/customAppContainer';
+import CustomText from '../../components/common/customText';
 
 const HomeScreen = () => {
   const {
-    colors: {customVampireBlack, customMediumPurple, customBrightGray},
+    colors: {customVampireBlack, customBrightGray},
   } = useAppTheme();
 
   return (
-    <View>
+    <CustomAppContainer>
       <CustomHeader
         customBckgroundColor={customVampireBlack}
         leftAvatarComponent={
           <>
             <CustomAvatar
-              color={customMediumPurple}
               avatarType={AvatarTypeList.Image}
-              size={42}
+              size={35}
               source={AvatarImage}
             />
           </>
@@ -40,7 +40,11 @@ const HomeScreen = () => {
         }
         title={''}
       />
-    </View>
+
+      <>
+        <CustomText text="Hello world!" />
+      </>
+    </CustomAppContainer>
   );
 };
 
