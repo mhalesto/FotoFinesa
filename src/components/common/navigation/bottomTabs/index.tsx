@@ -15,20 +15,17 @@ const BottomTabs = () => {
   const theme = useTheme();
 
   const {
-    colors: {
-      customIris,
-      customBrightGray,
-      customVampireBlack,
-      customMediumPurple,
-    },
+    colors: {customVampireBlack, customMediumPurple, customMediumSlateBlue},
   } = useAppTheme();
 
-  theme.colors.secondaryContainer = customIris ? customIris : '#6336D3';
+  theme.colors.secondaryContainer = 'transparent';
+  // theme.colors.secondaryContainer = customIris ? customIris : '#6336D3';
 
   return (
     <Tab.Navigator
       initialRouteName="Home"
-      activeColor={customBrightGray ? customBrightGray : '#EDEBF1'}
+      activeColor={customMediumSlateBlue}
+      // activeColor={customIris ? customIris : '#6336D3'}
       // inactiveColor={customIris ? customIris : '#6336D3'}
       barStyle={{
         backgroundColor: customVampireBlack ? customVampireBlack : '#090409',

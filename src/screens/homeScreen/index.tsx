@@ -6,7 +6,8 @@ import CustomAvatar from '../../components/common/customAvatar';
 import {AvatarTypeList} from '../../components/common/header/types';
 import AvatarImage from '../../assets/images/avatar/avatarWoman.png';
 import CustomAppContainer from '../../components/common/customAppContainer';
-import CustomText from '../../components/common/customText';
+import SliderTips from '../../components/common/sliderTips';
+import {View} from 'react-native';
 
 const HomeScreen = () => {
   const {
@@ -41,9 +42,9 @@ const HomeScreen = () => {
         title={''}
       />
 
-      <>
-        <CustomText text="Hello world!" />
-      </>
+      <View style={{height: 320}}>
+        <SliderTips />
+      </View>
     </CustomAppContainer>
   );
 };

@@ -6,18 +6,17 @@ import {ICustomAvatarProps, AvatarTypeList} from './types';
 import {StyleSheet, View} from 'react-native';
 import {useAppTheme} from '../../../../App';
 
-const CustomAvatar: React.FC<ICustomAvatarProps> = props => {
-  const {
-    icon,
-    size,
-    color,
-    style,
-    source,
-    label,
-    avatarType,
-    avatarPosition,
-    backgroundColor,
-  } = props;
+const CustomAvatar = ({
+  icon,
+  size,
+  color,
+  style,
+  source,
+  label,
+  avatarType,
+  avatarPosition,
+  backgroundColor,
+}: ICustomAvatarProps) => {
   const {
     colors: {customVampireBlack},
   } = useAppTheme();
