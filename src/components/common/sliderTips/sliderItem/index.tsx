@@ -49,16 +49,19 @@ const SliderItem = ({item}: any) => {
             fontSize={22}
             fontWeight={700}
             color={customBrightGray}
-            style={{marginBottom: 6, marginLeft: 5}}
+            style={{marginBottom: 6, marginLeft: slide.leftIcon ? 5 : 0}}
           />
         </View>
-        <View style={[styles.descContainer]}>
-          <CustomText
-            text={slide?.description}
-            fontSize={14}
-            color={customBrightGray}
-          />
-        </View>
+        {slide.description && (
+          <View style={[styles.descContainer]}>
+            <CustomText
+              text={slide?.description}
+              fontSize={14}
+              color={customBrightGray}
+            />
+          </View>
+        )}
+
         {/* TODO Custom Btn Component*/}
         {item?.actionButtonText && (
           <View style={styles.actionBtnContainer}>
@@ -69,7 +72,8 @@ const SliderItem = ({item}: any) => {
               textColor={customBrightGray}
               // rippleColor={customDarkPastelPurple}
               style={{
-                width: '80%',
+                flex: 1,
+                width: '50%',
                 height: 43,
                 justifyContent: 'center',
                 // borderWidth: 1,
@@ -77,7 +81,7 @@ const SliderItem = ({item}: any) => {
               }}
               onPress={() => console.log('Pressed')}>
               <CustomText
-                text="Start FREE Trial"
+                text={slide.actionButtonText}
                 fontSize={16}
                 fontWeight={700}
               />
@@ -93,6 +97,7 @@ export default SliderItem;
 
 const styles = StyleSheet.create({
   sliderText: {
+    width: '100%',
     position: 'absolute',
     bottom: 20,
     alignSelf: 'flex-start',
@@ -111,8 +116,5 @@ const styles = StyleSheet.create({
   descContainer: {
     marginBottom: 15,
   },
-  actionBtnContainer: {
-    // width: '100%',
-    flex: 1,
-  },
+  actionBtnContainer: {},
 });

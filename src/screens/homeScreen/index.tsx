@@ -8,6 +8,8 @@ import AvatarImage from '../../assets/images/avatar/avatarWoman.png';
 import CustomAppContainer from '../../components/common/customAppContainer';
 import SliderTips from '../../components/common/sliderTips';
 import {View} from 'react-native';
+import TestComponent from '../../components/common/_TestComponent';
+import MainFeatures from '../../components/special/mainFeatures';
 
 const HomeScreen = () => {
   const {
@@ -15,7 +17,7 @@ const HomeScreen = () => {
   } = useAppTheme();
 
   return (
-    <CustomAppContainer>
+    <>
       <CustomHeader
         customBckgroundColor={customVampireBlack}
         leftAvatarComponent={
@@ -41,11 +43,21 @@ const HomeScreen = () => {
         }
         title={''}
       />
+      <CustomAppContainer
+        isScrollable
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={[1]}>
+        <View style={{height: 320}}>
+          <SliderTips />
+        </View>
 
-      <View style={{height: 320}}>
-        <SliderTips />
-      </View>
-    </CustomAppContainer>
+        <MainFeatures />
+        <TestComponent />
+        <TestComponent />
+        <TestComponent />
+        <TestComponent />
+      </CustomAppContainer>
+    </>
   );
 };
 

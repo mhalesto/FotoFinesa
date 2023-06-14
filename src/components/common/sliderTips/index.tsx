@@ -6,9 +6,6 @@ import SliderItem from './sliderItem';
 import {useAppTheme} from '../../../../App';
 import sliderData from './sliderData';
 
-// export const SLIDER_WIDTH = Dimensions.get('window').width + 30;
-// export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.8);
-
 export const SLIDER_WIDTH = Dimensions.get('window').width;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 1);
 
