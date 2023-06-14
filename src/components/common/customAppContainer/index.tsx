@@ -5,10 +5,19 @@ import {ICustomAppContainerProps} from './types';
 const CustomAppContainer = ({
   isScrollable,
   children,
+  stickyHeaderIndices,
+  showsVerticalScrollIndicator,
 }: ICustomAppContainerProps) => {
   if (isScrollable) {
     return (
-      <ScrollView style={styles.container}>{children && children}</ScrollView>
+      <ScrollView
+        stickyHeaderIndices={stickyHeaderIndices ? stickyHeaderIndices : []}
+        showsVerticalScrollIndicator={
+          showsVerticalScrollIndicator ? showsVerticalScrollIndicator : false
+        }
+        style={styles.container}>
+        {children && children}
+      </ScrollView>
     );
   }
   return <View style={styles.container}>{children && children}</View>;
