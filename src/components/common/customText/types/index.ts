@@ -4,4 +4,5 @@ export interface ICustomTextProps {
   size?: string;
   fontSize?: number;
   fontWeight?: any;
+  style?: any;
 }

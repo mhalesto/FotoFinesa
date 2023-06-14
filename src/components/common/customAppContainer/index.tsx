@@ -6,8 +6,12 @@ const CustomAppContainer = ({
   isScrollable,
   children,
 }: ICustomAppContainerProps) => {
-  const ViewType = isScrollable ? ScrollView : View;
-  return <ViewType style={styles.container}>{children && children}</ViewType>;
+  if (isScrollable) {
+    return (
+      <ScrollView style={styles.container}>{children && children}</ScrollView>
+    );
+  }
+  return <View style={styles.container}>{children && children}</View>;
 };
 
 export default CustomAppContainer;
