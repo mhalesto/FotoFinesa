@@ -9,6 +9,7 @@ export interface ICustomAvatarProps
     CustomAvatarIconProps & CustomAvatarImageProps & CustomAvatarTextProps,
     'onLayout'
   > {
+  id?: any;
   iconName?: string;
   iconSize?: number;
   avatarType?: string;
