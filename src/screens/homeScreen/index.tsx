@@ -47,7 +47,7 @@ const HomeScreen = () => {
         isScrollable
         showsVerticalScrollIndicator={false}
         stickyHeaderIndices={[1]}>
-        <View style={{height: 320}}>
+        <View style={{height: 260}}>
           <SliderTips />
         </View>
 

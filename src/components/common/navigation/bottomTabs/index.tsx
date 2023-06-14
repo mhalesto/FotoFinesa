@@ -55,9 +55,6 @@ const BottomTabs = () => {
           tabBarIcon: ({color}) => (
             <MaterialCommunityIcons
               name="image-filter-vintage"
-              // name="image-edit"
-              // name="image-filter-hdr"
-              // name="image-multiple"
               color={color}
               size={26}
             />

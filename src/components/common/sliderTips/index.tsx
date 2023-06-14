@@ -5,11 +5,12 @@ import Carousel, {Pagination} from 'react-native-snap-carousel';
 import SliderItem from './sliderItem';
 import {useAppTheme} from '../../../../App';
 import sliderData from './sliderData';
+import {ISliderTipsProps} from './types';
 
 export const SLIDER_WIDTH = Dimensions.get('window').width;
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 1);
 
-const SliderTips = () => {
+const SliderTips = ({}: ISliderTipsProps) => {
   const [index, setIndex] = useState(0);
   const isCarousel = useRef(null);
   const [data, setData] = useState<any>(sliderData);
@@ -23,7 +24,7 @@ const SliderTips = () => {
   }, [data]);
 
   return (
-    <View style={styles.sliderContainer}>
+    <View style={[styles.sliderContainer]}>
       <Carousel
         vertical={false}
         // layout={'tinder'}
@@ -63,7 +64,7 @@ export default SliderTips;
 
 const styles = StyleSheet.create({
   sliderContainer: {
-    flex: 1,
+    // flex: 1,
     marginVertical: 0,
   },
 });
