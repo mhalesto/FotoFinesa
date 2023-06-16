@@ -7,8 +7,11 @@ import {useAppTheme} from '../../../../App';
 import {} from 'react-native-paper';
 import CustomText from '../../common/customText';
 import {IMainFeaturesDataProps} from './main-features-data/types';
+import {Dimensions} from 'react-native';
+import {CustomThemeColors} from '../../../assets/theme';
 
 const MainFeatures = () => {
+  const windowWidth = Dimensions.get('window').width;
   const {
     colors: {customBrightGray, customBodyDark},
   } = useAppTheme();
@@ -17,9 +20,11 @@ const MainFeatures = () => {
       <View
         style={[
           styles.featuresContainer,
+          styles.shadow,
           [
             {
               backgroundColor: customBodyDark,
+              paddingHorizontal: '2%',
               // borderWidth: 0.5,
               // borderBottomColor: '#4c4c4c85',
             },
@@ -45,9 +50,12 @@ const MainFeatures = () => {
               key={index + 1}
               style={{
                 justifyContent: 'center',
-                alignContent: 'center',
                 alignItems: 'center',
-                flexDirection: 'column',
+                marginHorizontal: 0,
+                borderRadius: 5,
+                opacity: 0.9,
+                flex: 1,
+                paddingTop: windowWidth <= 360 ? 10 : 15,
               }}>
               <CustomAvatar
                 key={index + 1}
@@ -60,7 +68,13 @@ const MainFeatures = () => {
                 source={source}
                 label={label}
                 size={size}
-                style={{marginHorizontal: 5, borderRadius: 3, opacity: 0.88}}
+                style={{
+                  marginHorizontal: 5,
+                  borderRadius: 5,
+                  opacity: 0.88,
+                  width: windowWidth <= 360 ? 77 : 88,
+                  minHeight: windowWidth <= 360 ? '65%' : '75%',
+                }}
                 color={color ? color : customBrightGray}
               />
               <CustomText
@@ -84,21 +98,21 @@ const styles = StyleSheet.create({
   featuresContainer: {
     flex: 1,
     flexDirection: 'row',
-    minHeight: 100,
+    minHeight: 130,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
-    paddingTop: 15,
+    paddingBottom: 5,
   },
   shadow: {
-    // borderBottomColor: '#eeeeeeb8',
-    // shadowColor: '#ffffffb8',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 10,
-    // },
-    // shadowOpacity: 0.51,
-    // shadowRadius: 13.16,
-    // elevation: 24,
+    shadowColor: CustomThemeColors.customMediumSlateBlue,
+    shadowOffset: {
+      width: 10,
+      height: 10,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 15,
+    elevation: 10,
   },
 });

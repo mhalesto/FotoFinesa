@@ -21,9 +21,6 @@ const SliderItem = ({item}: any) => {
   return (
     <View
       style={{
-        borderWidth: 1,
-        padding: 0,
-        borderRadius: 0,
         alignItems: 'center',
         backgroundColor: customBrightGray,
       }}>

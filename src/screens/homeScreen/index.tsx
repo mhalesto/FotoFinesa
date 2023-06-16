@@ -8,8 +8,8 @@ import AvatarImage from '../../assets/images/avatar/avatarWoman.png';
 import CustomAppContainer from '../../components/common/customAppContainer';
 import SliderTips from '../../components/common/sliderTips';
 import {View} from 'react-native';
-import TestComponent from '../../components/common/_TestComponent';
 import MainFeatures from '../../components/special/mainFeatures';
+import BrowseImages from '../../components/special/mainFeatures/components/browseImages';
 
 const HomeScreen = () => {
   const {
@@ -52,10 +52,7 @@ const HomeScreen = () => {
         </View>
 
         <MainFeatures />
-        <TestComponent />
-        <TestComponent />
-        <TestComponent />
-        <TestComponent />
+        <BrowseImages />
       </CustomAppContainer>
     </>
   );
