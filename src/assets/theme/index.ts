@@ -9,4 +9,5 @@ export const CustomThemeColors: ICustomThemeColors = {
   customDarkPastelPurple: '#8B6CCC',
   customIris: '#6336D3',
   customBodyDark: '#212121',
+  customInactiveDark: '#797979d1',
 };

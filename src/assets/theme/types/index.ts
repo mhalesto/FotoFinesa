@@ -7,4 +7,5 @@ export interface ICustomThemeColors {
   customDarkPastelPurple: string;
   customIris: string;
   customBodyDark: string;
+  customInactiveDark: string;
 }
