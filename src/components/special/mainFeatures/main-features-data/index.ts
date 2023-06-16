@@ -17,7 +17,7 @@ export const MAINFEATURESDATA: IMainFeaturesDataProps[] = [
     icon: 'face-man-shimmer-outline',
     avatarType,
     size,
-    featureName: 'Face Retouch',
+    featureName: 'Retouch',
     color: 'white',
     backgroundColor: '#745BE9',
   },
