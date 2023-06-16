@@ -1,11 +1,15 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import PageHeaderConfigure from '../../components/common/customHeader/screenHeaderConfigure';
+import {ScreenNames} from '../../components/common/customHeader/screenHeaderConfigure/constants';
 
 const DiscoverScreen = () => {
   return (
-    <View>
-      <Text>DiscoverScreen component</Text>
-    </View>
+    <>
+      <PageHeaderConfigure
+        screenName={ScreenNames.DiscoverScreen}
+        title="Discover"
+      />
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import {AvatarTypeList} from '../../../common/header/types';
+import {AvatarTypeList} from '../../../common/customHeader/types';
 import {IMainFeaturesDataProps} from './types';
 
 const size = 70;

@@ -1,11 +1,11 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import PageHeaderConfigure from '../../components/common/customHeader/screenHeaderConfigure';
 
 const MyProjectsScreen = () => {
   return (
-    <View>
-      <Text>MyProjectsScreen component</Text>
-    </View>
+    <>
+      <PageHeaderConfigure />
+    </>
   );
 };
 
