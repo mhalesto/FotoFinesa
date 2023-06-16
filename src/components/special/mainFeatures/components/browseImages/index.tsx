@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
 import {ScrollView, Image, View, StyleSheet} from 'react-native';
@@ -5,9 +6,12 @@ import {CameraRoll} from '@react-native-camera-roll/camera-roll';
 import {Dimensions} from 'react-native';
 import CustomText from '../../../../common/customText';
 import hasAndroidPermission from '../../../../../utils/permissions';
+import CustomFlatList from '../../../../common/customFlatList';
 
 const BrowseImages = () => {
   const [photos, setPhotos] = useState([]);
+  const [albums, setAlbums] = useState([]);
+  const [selectedAlbum, setSelectedAlbum] = useState([]);
   const windowWidth = Dimensions.get('window').width;
 
   // const savePicture = async () => {
@@ -17,10 +21,12 @@ const BrowseImages = () => {
   //   // CameraRoll.save(tag, {type, album});
   // };
 
-  const handleGetPhotos = async () => {
+  const handleGetPhotos = async (album: any) => {
     const permissionGranted = await hasAndroidPermission();
     if (permissionGranted) {
       CameraRoll.getPhotos({
+        groupTypes: 'Album',
+        groupName: album.title,
         first: 24,
         assetType: 'Photos',
       })
@@ -31,12 +37,34 @@ const BrowseImages = () => {
           console.log(err);
           // Error Loading Images
         });
+      handleGetAlbums();
+    }
+  };
+
+  const handleGetAlbums = async () => {
+    const permissionGranted = await hasAndroidPermission();
+    if (permissionGranted) {
+      CameraRoll.getAlbums({
+        assetType: 'Photos',
+      })
+        .then((r: any) => {
+          setAlbums(r);
+        })
+        .catch(err => {
+          console.log(err);
+          // Error Loading Albums
+        });
     }
   };
 
   useEffect(() => {
-    handleGetPhotos();
+    handleGetPhotos(selectedAlbum);
   }, []);
+
+  const handleAlbumPress = (album: any) => {
+    setSelectedAlbum(album);
+    handleGetPhotos(album);
+  };
 
   return (
     <View style={styles.containerView}>
@@ -45,6 +73,13 @@ const BrowseImages = () => {
         fontWeight={700}
         style={styles.editHeading}
       />
+
+      <CustomFlatList
+        data={albums}
+        uniqueIdentifier={'title'}
+        itemPress={handleAlbumPress}
+      />
+
       <ScrollView
         contentContainerStyle={{
           flexDirection: 'row',
