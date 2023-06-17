@@ -3,21 +3,25 @@ import React, {useEffect, useState} from 'react';
 import {View, Image, StyleSheet} from 'react-native';
 import {useAppTheme} from '../../../../../App';
 import CustomAvatar from '../../customAvatar';
-import {AvatarTypeList} from '../../customAvatar/types';
-import {Button} from 'react-native-paper';
 import CustomText from '../../customText';
 import {ISliderTypes} from '../sliderData/sliderTypes';
+import CustomButton from '../../customButton';
 
 const SliderItem = ({item}: any) => {
   const [slide, setSlide] = useState<ISliderTypes>(item);
+
+  const {
+    colors: {customBrightGray},
+  } = useAppTheme();
 
   useEffect(() => {
     setSlide(item);
   }, [item]);
 
-  const {
-    colors: {customBrightGray, customMediumSlateBlue},
-  } = useAppTheme();
+  const handleBtnAction = (actionItem: any) => {
+    console.log('btnAction', actionItem);
+  };
+
   return (
     <View
       style={{
@@ -36,7 +40,7 @@ const SliderItem = ({item}: any) => {
         <View style={styles.titleWrapper}>
           {slide?.leftIcon && (
             <CustomAvatar
-              avatarType={AvatarTypeList.Icon}
+              avatarType="Icon"
               icon={slide.leftIcon}
               backgroundColor={slide?.leftIconColor}
               color={customBrightGray}
@@ -60,30 +64,12 @@ const SliderItem = ({item}: any) => {
           </View>
         )}
 
-        {/* TODO Custom Btn Component*/}
         {item?.actionButtonText && (
           <View style={styles.actionBtnContainer}>
-            <Button
-              icon=""
-              mode="contained"
-              buttonColor={customMediumSlateBlue}
-              textColor={customBrightGray}
-              // rippleColor={customDarkPastelPurple}
-              style={{
-                flex: 1,
-                width: '50%',
-                height: 43,
-                justifyContent: 'center',
-                // borderWidth: 1,
-                // borderColor: '#6336D3',
-              }}
-              onPress={() => console.log('Pressed')}>
-              <CustomText
-                text={slide.actionButtonText}
-                fontSize={16}
-                fontWeight={700}
-              />
-            </Button>
+            <CustomButton
+              title={slide?.actionButtonText}
+              onPress={handleBtnAction}
+            />
           </View>
         )}
       </View>
@@ -95,7 +81,6 @@ export default SliderItem;
 
 const styles = StyleSheet.create({
   sliderText: {
-    width: '100%',
     position: 'absolute',
     bottom: 20,
     alignSelf: 'flex-start',

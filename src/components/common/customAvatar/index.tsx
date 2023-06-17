@@ -2,7 +2,7 @@
 import React from 'react';
 import {Avatar} from 'react-native-paper';
 import AvatarImage from '../../../assets/images/avatar/avatar.png';
-import {ICustomAvatarProps, AvatarTypeList} from './types';
+import {ICustomAvatarProps} from './types';
 import {StyleSheet, View} from 'react-native';
 import {useAppTheme} from '../../../../App';
 
@@ -23,11 +23,13 @@ const CustomAvatar = ({
   return (
     <View
       style={[
-        {
-          alignSelf: avatarPosition ? avatarPosition : 'center',
-        },
+        [
+          {
+            alignSelf: avatarPosition ? avatarPosition : 'center',
+          },
+        ],
       ]}>
-      {avatarType && avatarType === AvatarTypeList.Icon ? (
+      {avatarType && avatarType === 'Icon' ? (
         <Avatar.Icon
           size={size ? size : 20}
           icon={icon ? icon : 'arrow-left'}
@@ -38,11 +40,12 @@ const CustomAvatar = ({
               styles.avatarIcon,
               {
                 backgroundColor: backgroundColor && backgroundColor,
+                // borderWidth: 3,
               },
             ],
           ]}
         />
-      ) : avatarType && avatarType === AvatarTypeList.Image ? (
+      ) : avatarType && avatarType === 'Image' ? (
         <Avatar.Image
           size={size ? size : 65}
           source={source ? source : AvatarImage}

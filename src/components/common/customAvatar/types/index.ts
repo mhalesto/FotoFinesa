@@ -3,6 +3,7 @@ import {
   AvatarImageProps,
   AvatarTextProps,
 } from 'react-native-paper';
+import {IAvatarTypes} from '../../../../models/avatarModel';
 
 export interface ICustomAvatarProps
   extends Omit<
@@ -12,7 +13,7 @@ export interface ICustomAvatarProps
   id?: any;
   iconName?: string;
   iconSize?: number;
-  avatarType?: string;
+  avatarType?: IAvatarTypes;
   avatarImagesource?: string;
   avatarPosition?: any;
   backgroundColor?: string;
@@ -27,20 +28,3 @@ interface CustomAvatarImageProps extends Omit<AvatarImageProps, 'source'> {
 interface CustomAvatarTextProps extends Omit<AvatarTextProps, 'label'> {
   label?: AvatarTextProps['label'];
 }
-
-export interface IAvatarTypes {
-  Icon: string;
-  Image: IImage;
-  Text: string;
-}
-
-export interface IImage {
-  size: number;
-  source: string;
-}
-
-export const AvatarTypeList = {
-  Icon: 'Icon',
-  Image: 'Image',
-  Text: 'Text',
-};

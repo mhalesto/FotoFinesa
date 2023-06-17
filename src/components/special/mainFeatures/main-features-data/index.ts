@@ -1,12 +1,12 @@
-import {AvatarTypeList} from '../../../common/customHeader/types';
+import {IAvatarTypes} from '../../../../models/avatarModel';
 import {IMainFeaturesDataProps} from './types';
 
 const size = 70;
-const avatarType = AvatarTypeList.Icon;
+const avatarType: IAvatarTypes = 'Icon';
 
 export const MAINFEATURESDATA: IMainFeaturesDataProps[] = [
   {
-    icon: 'image-edit',
+    icon: 'image-edit-outline',
     avatarType,
     size,
     color: 'white',
@@ -14,7 +14,7 @@ export const MAINFEATURESDATA: IMainFeaturesDataProps[] = [
     backgroundColor: '#8B6CCC',
   },
   {
-    icon: 'face-man-shimmer-outline',
+    icon: 'face-man-shimmer',
     avatarType,
     size,
     featureName: 'Retouch',
@@ -22,7 +22,7 @@ export const MAINFEATURESDATA: IMainFeaturesDataProps[] = [
     backgroundColor: '#745BE9',
   },
   {
-    icon: 'image-multiple',
+    icon: 'image-multiple-outline',
     avatarType,
     size,
     featureName: 'Combine',
@@ -30,7 +30,7 @@ export const MAINFEATURESDATA: IMainFeaturesDataProps[] = [
     backgroundColor: '#6336D3',
   },
   {
-    icon: 'camera',
+    icon: 'camera-outline',
     avatarType,
     size,
     featureName: 'Capture',
