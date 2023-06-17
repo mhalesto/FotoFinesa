@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {PaperProvider, MD3LightTheme, useTheme} from 'react-native-paper';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
 import BottomTabs from './src/components/common/navigation/bottomTabs';
 import CustomStatusBar from './src/components/common/customStatusBar';
 import {CustomThemeColors} from './src/assets/theme';
+import SplashScreen from 'react-native-splash-screen';
 
 const theme = {
   ...MD3LightTheme,
@@ -26,6 +27,10 @@ const navTheme = {
 };
 
 function App(): JSX.Element {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
+
   return (
     <PaperProvider theme={theme}>
       <NavigationContainer theme={navTheme}>
