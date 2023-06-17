@@ -120,6 +120,6 @@ const styles = StyleSheet.create({
   },
   editHeading: {
     paddingHorizontal: 13,
-    paddingVertical: 10,
+    paddingTop: 12,
   },
 });

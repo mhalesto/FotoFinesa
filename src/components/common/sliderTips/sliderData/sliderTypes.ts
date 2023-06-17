@@ -6,4 +6,5 @@ export interface ISliderTypes {
   actionButtonText?: string;
   leftIcon?: any;
   leftIconColor?: any;
+  sliderTextContainerStyle?: any;
 }

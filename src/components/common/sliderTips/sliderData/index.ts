@@ -10,6 +10,8 @@ const sliderData: ISliderTypes[] = [
     // leftIcon: 'star',
     // leftIconColor: '#FFD700',
     // leftIconColor: '#6336D3',
+    // sliderTextContainerStyle: {backgroundColor: 'rgba(0, 0, 0, 0.150)'},
+    // sliderTextContainerStyle: {backgroundColor: 'rgba(0, 0, 0, 0.200)'},
   },
   {
     id: 2,
@@ -22,12 +24,14 @@ const sliderData: ISliderTypes[] = [
   },
   {
     id: 3,
-    // title: 'Ice Stellies',
-    // description: 'Unlock premium features NOW...!!!',
-    url: 'https://cdn.pixabay.com/photo/2017/12/28/16/18/bicycle-3045580_1280.jpg',
+    title: 'Overlays',
+    description: 'Bring more layers to your photos.',
+    // url: 'https://cdn.pixabay.com/photo/2017/12/28/16/18/bicycle-3045580_1280.jpg',
     // url: 'https://cdn.pixabay.com/photo/2015/05/11/14/51/heart-762564_1280.jpg',
-    // url: 'https://cdn.pixabay.com/photo/2018/03/10/17/16/woman-3214594_1280.jpg',
-    // actionButtonText: '7-day Free Trial',
+    url: 'https://cdn.pixabay.com/photo/2018/03/10/17/16/woman-3214594_1280.jpg',
+    actionButtonText: 'Try Now',
+    sliderTextContainerStyle: {backgroundColor: 'rgba(0, 0, 0, 0.500)'},
+    // sliderTextContainerStyle: {backgroundColor: 'rgba(0, 0, 0, 0.750)'},
     // leftIcon: 'air-filter',
   },
 ];

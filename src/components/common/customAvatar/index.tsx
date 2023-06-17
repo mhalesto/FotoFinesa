@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Avatar} from 'react-native-paper';
+import {Avatar, IconButton} from 'react-native-paper';
 import AvatarImage from '../../../assets/images/avatar/avatar.png';
 import {ICustomAvatarProps} from './types';
 import {StyleSheet, View} from 'react-native';
@@ -18,7 +18,7 @@ const CustomAvatar = ({
   backgroundColor,
 }: ICustomAvatarProps) => {
   const {
-    colors: {customVampireBlack},
+    colors: {customVampireBlack, customIris},
   } = useAppTheme();
   return (
     <View
@@ -56,6 +56,14 @@ const CustomAvatar = ({
               {backgroundColor: backgroundColor && backgroundColor},
             ],
           ]}
+        />
+      ) : avatarType && avatarType === 'IconButton' ? (
+        // TODO: IconButton props
+        <IconButton
+          icon={icon ? icon : 'camera'}
+          iconColor={color ? color : customIris}
+          size={size}
+          onPress={() => console.log('Pressed')}
         />
       ) : (
         <Avatar.Text

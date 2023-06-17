@@ -8,14 +8,23 @@ import {ISliderTypes} from '../sliderData/sliderTypes';
 import CustomButton from '../../customButton';
 
 const SliderItem = ({item}: any) => {
-  const [slide, setSlide] = useState<ISliderTypes>(item);
+  const [slider, setSlider] = useState<ISliderTypes>(item);
+  const {
+    title,
+    description,
+    url,
+    actionButtonText,
+    leftIcon,
+    leftIconColor,
+    sliderTextContainerStyle,
+  } = slider;
 
   const {
     colors: {customBrightGray},
   } = useAppTheme();
 
   useEffect(() => {
-    setSlide(item);
+    setSlider(item);
   }, [item]);
 
   const handleBtnAction = (actionItem: any) => {
@@ -30,34 +39,34 @@ const SliderItem = ({item}: any) => {
       }}>
       <Image
         source={{
-          uri: slide?.url
-            ? slide?.url
+          uri: url
+            ? url
             : 'https://cdn.pixabay.com/photo/2016/10/31/19/04/balloons-1786430_960_720.jpg',
         }}
         style={{width: '100%', height: '100%'}}
       />
-      <View style={styles.sliderText}>
+      <View style={[sliderTextContainerStyle, styles.sliderText, [{}]]}>
         <View style={styles.titleWrapper}>
-          {slide?.leftIcon && (
+          {leftIcon && (
             <CustomAvatar
               avatarType="Icon"
-              icon={slide.leftIcon}
-              backgroundColor={slide?.leftIconColor}
+              icon={leftIcon}
+              backgroundColor={leftIconColor}
               color={customBrightGray}
             />
           )}
           <CustomText
-            text={slide?.title ? slide.title : ''}
+            text={title ? title : ''}
             fontSize={22}
             fontWeight={700}
             color={customBrightGray}
-            style={{marginBottom: 6, marginLeft: slide.leftIcon ? 5 : 0}}
+            style={{marginBottom: 6, marginLeft: leftIcon ? 5 : 0}}
           />
         </View>
-        {slide.description && (
+        {description && (
           <View style={[styles.descContainer]}>
             <CustomText
-              text={slide?.description}
+              text={description}
               fontSize={14}
               color={customBrightGray}
             />
@@ -66,10 +75,7 @@ const SliderItem = ({item}: any) => {
 
         {item?.actionButtonText && (
           <View style={styles.actionBtnContainer}>
-            <CustomButton
-              title={slide?.actionButtonText}
-              onPress={handleBtnAction}
-            />
+            <CustomButton title={actionButtonText} onPress={handleBtnAction} />
           </View>
         )}
       </View>
@@ -89,8 +95,7 @@ const styles = StyleSheet.create({
     paddingRight: 10,
     paddingTop: 10,
     zIndex: 9,
-    // backgroundColor: 'rgba(0, 0, 0, 0.786)',
-    // backgroundColor: 'rgba(0,0,0,0.5)',
+    // backgroundColor: 'rgba(0, 0, 0, 0.661)',
     borderTopRightRadius: 10,
   },
   titleWrapper: {
@@ -99,5 +104,7 @@ const styles = StyleSheet.create({
   descContainer: {
     marginBottom: 15,
   },
-  actionBtnContainer: {},
+  actionBtnContainer: {
+    marginBottom: 5,
+  },
 });

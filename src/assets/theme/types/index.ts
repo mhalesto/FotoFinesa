@@ -8,4 +8,6 @@ export interface ICustomThemeColors {
   customIris: string;
   customBodyDark: string;
   customInactiveDark: string;
+  customInactiveTextColor: string;
+  customInactiveBorderColor: string;
 }

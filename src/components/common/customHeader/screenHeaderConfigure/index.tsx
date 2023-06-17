@@ -2,7 +2,7 @@
 import React from 'react';
 import CustomHeader from '..';
 import CustomAvatar from '../../customAvatar';
-import AvatarImage from '../../../../assets/images/avatar/avatarWoman.png';
+import logo from '../../../../assets/images/logo/logo.jpg';
 import {useAppTheme} from '../../../../../App';
 import {IPageHeaderConfigureProps} from './types';
 import {ScreenNames} from './constants';
@@ -77,7 +77,12 @@ const PageHeaderConfigure = ({
       customBckgroundColor={customVampireBlack}
       leftAvatarComponent={
         <>
-          <CustomAvatar avatarType="Image" size={35} source={AvatarImage} />
+          <CustomAvatar
+            avatarType="Image"
+            size={60}
+            source={logo}
+            // style={{left: 5}}
+          />
         </>
       }
       rightAvatarComponent={

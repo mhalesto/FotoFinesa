@@ -1,1 +1,1 @@
-export type IAvatarTypes = 'Icon' | 'Image' | 'Text' | undefined;
+export type IAvatarTypes = 'Icon' | 'Image' | 'Text' | 'IconButton' | undefined;

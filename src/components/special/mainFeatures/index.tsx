@@ -10,10 +10,12 @@ import {IMainFeaturesDataProps} from './main-features-data/types';
 import {Dimensions} from 'react-native';
 import {CustomThemeColors} from '../../../assets/theme';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 const MainFeatures = () => {
-  const windowWidth = Dimensions.get('window').width;
   const {
-    colors: {customBrightGray, customBodyDark},
+    colors: {customBrightGray, customBodyDark, customIris},
   } = useAppTheme();
   if (MAINFEATURESDATA.length > 0) {
     return (
@@ -53,9 +55,8 @@ const MainFeatures = () => {
                 alignItems: 'center',
                 marginHorizontal: 0,
                 borderRadius: 5,
-                opacity: 0.9,
                 flex: 1,
-                paddingTop: windowWidth <= 360 ? 10 : 15,
+                paddingTop: windowWidth <= 360 ? 8 : 15,
               }}>
               <CustomAvatar
                 key={index + 1}
@@ -63,7 +64,8 @@ const MainFeatures = () => {
                 avatarType={avatarType}
                 avatarImagesource={avatarImagesource}
                 avatarPosition={avatarPosition}
-                backgroundColor={backgroundColor}
+                color={color ? color : customBrightGray}
+                backgroundColor={backgroundColor ? backgroundColor : customIris}
                 icon={icon}
                 source={source}
                 label={label}
@@ -71,11 +73,9 @@ const MainFeatures = () => {
                 style={{
                   marginHorizontal: 5,
                   borderRadius: 5,
-                  opacity: 0.88,
-                  width: windowWidth <= 360 ? 77 : 88,
+                  width: windowWidth <= 360 ? 79 : 89,
                   minHeight: windowWidth <= 360 ? '65%' : '75%',
                 }}
-                color={color ? color : customBrightGray}
               />
               <CustomText
                 text={featureName}
@@ -98,12 +98,12 @@ const styles = StyleSheet.create({
   featuresContainer: {
     flex: 1,
     flexDirection: 'row',
-    minHeight: 130,
+    minHeight: 110,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
-    paddingBottom: 5,
+    paddingBottom: windowHeight < 835 ? 0 : 5,
   },
   shadow: {
     shadowColor: CustomThemeColors.customMediumSlateBlue,
@@ -113,6 +113,6 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.5,
     shadowRadius: 15,
-    elevation: 10,
+    elevation: 5,
   },
 });
