@@ -38,6 +38,7 @@ const SliderItem = ({item}: any) => {
             <CustomAvatar
               avatarType={AvatarTypeList.Icon}
               icon={slide.leftIcon}
+              backgroundColor={slide?.leftIconColor}
               color={customBrightGray}
             />
           )}
