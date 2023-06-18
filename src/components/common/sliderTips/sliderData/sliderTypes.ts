@@ -5,4 +5,6 @@ export interface ISliderTypes {
   url?: string;
   actionButtonText?: string;
   leftIcon?: any;
+  leftIconColor?: any;
+  sliderTextContainerStyle?: any;
 }

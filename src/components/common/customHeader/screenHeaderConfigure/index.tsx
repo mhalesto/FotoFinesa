@@ -2,8 +2,7 @@
 import React from 'react';
 import CustomHeader from '..';
 import CustomAvatar from '../../customAvatar';
-import AvatarImage from '../../../../assets/images/avatar/avatarWoman.png';
-import {AvatarTypeList} from '../../customAvatar/types';
+import logo from '../../../../assets/images/logo/logo.jpg';
 import {useAppTheme} from '../../../../../App';
 import {IPageHeaderConfigureProps} from './types';
 import {ScreenNames} from './constants';
@@ -25,7 +24,7 @@ const PageHeaderConfigure = ({
           <>
             <CustomAvatar
               color={customVampireBlack}
-              avatarType={AvatarTypeList.Icon}
+              avatarType="Icon"
               icon={'help'}
               size={24}
               avatarPosition={'center'}
@@ -39,7 +38,7 @@ const PageHeaderConfigure = ({
             />
             <CustomAvatar
               color={customInactiveDark}
-              avatarType={AvatarTypeList.Icon}
+              avatarType="Icon"
               icon={'magnify'}
               size={38}
               avatarPosition={'center'}
@@ -53,7 +52,7 @@ const PageHeaderConfigure = ({
             />
             <CustomAvatar
               color={customInactiveDark}
-              avatarType={AvatarTypeList.Icon}
+              avatarType="Icon"
               icon={'account-circle'}
               size={38}
               avatarPosition={'center'}
@@ -79,9 +78,10 @@ const PageHeaderConfigure = ({
       leftAvatarComponent={
         <>
           <CustomAvatar
-            avatarType={AvatarTypeList.Image}
-            size={35}
-            source={AvatarImage}
+            avatarType="Image"
+            size={60}
+            source={logo}
+            // style={{left: 5}}
           />
         </>
       }
@@ -89,7 +89,7 @@ const PageHeaderConfigure = ({
         <>
           <CustomAvatar
             color={customInactiveDark}
-            avatarType={AvatarTypeList.Icon}
+            avatarType="Icon"
             icon={'cog'}
             size={38}
             avatarPosition={'center'}

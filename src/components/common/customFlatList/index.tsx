@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderWidth: 1,
-    borderColor: CustomThemeColors.customVampireBlack,
+    borderColor: CustomThemeColors.customInactiveBorderColor,
     borderRadius: 5,
     paddingVertical: 7,
     paddingHorizontal: 16,
@@ -82,11 +82,12 @@ const styles = StyleSheet.create({
   },
   selectedButton: {
     backgroundColor: CustomThemeColors.customIris,
+    borderColor: CustomThemeColors.customIris,
   },
   buttonText: {
     fontSize: 14,
     // fontWeight: 'bold',
-    color: CustomThemeColors.customBrightGray,
+    color: CustomThemeColors.customInactiveTextColor,
   },
   selectedButtonText: {
     color: CustomThemeColors.customBrightGray,

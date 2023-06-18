@@ -1,8 +1,8 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {Avatar} from 'react-native-paper';
+import {Avatar, IconButton} from 'react-native-paper';
 import AvatarImage from '../../../assets/images/avatar/avatar.png';
-import {ICustomAvatarProps, AvatarTypeList} from './types';
+import {ICustomAvatarProps} from './types';
 import {StyleSheet, View} from 'react-native';
 import {useAppTheme} from '../../../../App';
 
@@ -18,16 +18,18 @@ const CustomAvatar = ({
   backgroundColor,
 }: ICustomAvatarProps) => {
   const {
-    colors: {customVampireBlack},
+    colors: {customVampireBlack, customIris},
   } = useAppTheme();
   return (
     <View
       style={[
-        {
-          alignSelf: avatarPosition ? avatarPosition : 'center',
-        },
+        [
+          {
+            alignSelf: avatarPosition ? avatarPosition : 'center',
+          },
+        ],
       ]}>
-      {avatarType && avatarType === AvatarTypeList.Icon ? (
+      {avatarType && avatarType === 'Icon' ? (
         <Avatar.Icon
           size={size ? size : 20}
           icon={icon ? icon : 'arrow-left'}
@@ -38,11 +40,12 @@ const CustomAvatar = ({
               styles.avatarIcon,
               {
                 backgroundColor: backgroundColor && backgroundColor,
+                // borderWidth: 3,
               },
             ],
           ]}
         />
-      ) : avatarType && avatarType === AvatarTypeList.Image ? (
+      ) : avatarType && avatarType === 'Image' ? (
         <Avatar.Image
           size={size ? size : 65}
           source={source ? source : AvatarImage}
@@ -53,6 +56,14 @@ const CustomAvatar = ({
               {backgroundColor: backgroundColor && backgroundColor},
             ],
           ]}
+        />
+      ) : avatarType && avatarType === 'IconButton' ? (
+        // TODO: IconButton props
+        <IconButton
+          icon={icon ? icon : 'camera'}
+          iconColor={color ? color : customIris}
+          size={size}
+          onPress={() => console.log('Pressed')}
         />
       ) : (
         <Avatar.Text
