@@ -4,6 +4,7 @@ import PageHeaderConfigure from '../../components/common/customHeader/screenHead
 const MyProjectsScreen = () => {
   return (
     <>
+      <></>
       <PageHeaderConfigure />
     </>
   );
