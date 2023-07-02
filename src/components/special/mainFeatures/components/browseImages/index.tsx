@@ -1,12 +1,24 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
-import {ScrollView, Image, View, StyleSheet} from 'react-native';
+import {
+  ScrollView,
+  Image,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+} from 'react-native';
 import {CameraRoll} from '@react-native-camera-roll/camera-roll';
 import {Dimensions} from 'react-native';
 import CustomText from '../../../../common/customText';
 import hasAndroidPermission from '../../../../../utils/permissions';
 import CustomFlatList from '../../../../common/customFlatList';
+
+import {
+  PESDK,
+  PhotoEditorModal,
+  Configuration,
+} from 'react-native-photoeditorsdk';
 
 const BrowseImages = () => {
   const [photos, setPhotos] = useState([]);
@@ -66,6 +78,12 @@ const BrowseImages = () => {
     handleGetPhotos(album);
   };
 
+  const handleOpenEditImage = (image: any) => {
+    PESDK.openEditor({
+      uri: image?.node?.image?.uri,
+    });
+  };
+
   return (
     <View style={styles.containerView}>
       <CustomText
@@ -86,26 +104,29 @@ const BrowseImages = () => {
           flexWrap: 'wrap',
           marginHorizontal: 10,
         }}>
-        {photos.map((p: any, index) => (
-          <View
-            key={index}
-            style={{
-              width: windowWidth <= 360 ? '31.5%' : '31.8%',
-              aspectRatio: 1,
-              marginVertical: 3,
-              marginHorizontal: 3,
-            }}>
-            <Image
+        {photos.map((picture: any, index) => {
+          return (
+            <TouchableOpacity
               key={index}
+              onPress={() => handleOpenEditImage(picture)}
               style={{
-                width: '100%',
-                height: 100,
-                borderRadius: 4,
-              }}
-              source={{uri: p?.node?.image?.uri}}
-            />
-          </View>
-        ))}
+                width: windowWidth <= 360 ? '31.5%' : '31.8%',
+                aspectRatio: 1,
+                marginVertical: 3,
+                marginHorizontal: 3,
+              }}>
+              <Image
+                key={index}
+                style={{
+                  width: '100%',
+                  height: 100,
+                  borderRadius: 4,
+                }}
+                source={{uri: picture?.node?.image?.uri}}
+              />
+            </TouchableOpacity>
+          );
+        })}
       </ScrollView>
     </View>
   );
